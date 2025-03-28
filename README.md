@@ -1,6 +1,8 @@
 # Direct Linear Transformation (DLT)
 ## How it Works
-![Image 1](calibrationPoints.png) ![Image 2](prediction.png)
+| Calibration Points | Prediction |
+|--------------------|------------|
+| ![Calibration Points](calibrationPoints.png) | ![Prediction](prediction.png) |- 
 - **Left Image:** Shows the selected calibration points in the world coordinate system.
 - **Right Image:** Shows the predicted 2D points for both calibration and test points after applying the Direct Linear Transformation (DLT) method.
 
