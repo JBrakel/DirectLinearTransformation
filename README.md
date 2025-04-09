@@ -54,6 +54,23 @@ By using known 3D world coordinates (reference points) and their corresponding 2
 5. **Visualization**:
    - The results are visualized by plotting the original 2D image, overlaying the calibration points (training and test points), and showing the predicted 2D points.
 
+7. **Camera Parameters**: After obtaining the projection matrix **L**, the intrinsic and extrinsic camera parameters are computed.
+
+   - **Intrinsic Parameters**:
+     - Derived from the DLT matrix **L** using geometric relationships.
+     - Includes:
+       - `u₀`, `v₀`: Coordinates of the **principal point** in the image.
+       - `bₓ`, `bᵧ`: **Camera constants** (related to focal length and pixel scaling in x and y directions).
+       - `Lconst`: A normalization constant derived from the last three elements of **L**.
+
+   - **Extrinsic Parameters**:
+     - Represent the **rotation matrix (R)** and **translation vector (T)** of the camera relative to the world coordinate system.
+     - Computed using the intrinsic parameters and the elements of **L**.
+     - `R` describes the orientation of the camera.
+     - `T` corresponds to the position of the camera (optical center) in the world.
+
+These parameters are critical for understanding the geometric relationship between the 3D world and its 2D image projection, and can be used for further tasks such as 3D reconstruction, pose estimation, or augmented reality.
+
 ---
 
 ## Results
@@ -68,11 +85,11 @@ By using known 3D world coordinates (reference points) and their corresponding 2
 1. Clone the repository:
 
    ```
-   git clone https://github.com/yourusername/dlt.git
+   git clone https://github.com/JBrakel/DirectLinearTransformation.git
    ```
 2. Install the required dependencies:
    ```
-   cd dlt
+   cd DirectLinearTransformation
    pip install -r requirements.txt
    ```
 3. Run the script:
